@@ -8,11 +8,15 @@ export default {
     return {
       title: 'My First Vue App!',
       showModal: false,
+      showModalTwo: false,
     }
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
@@ -32,7 +36,14 @@ export default {
       <p>Grab your ninja swag for half price!</p>
     </Modal>
   </div> 
+  <div v-if="showModalTwo">
+    <Modal @close="toggleModalTwo">
+      <h1>Sign up to the Newsletter</h1>
+      <p>For updates and promo codes!</p>
+    </Modal>
+  </div>
   <button @click="toggleModal">open modal</button>
+  <button @click="toggleModalTwo">open modal 2</button>
 </template>
 
 <style>
